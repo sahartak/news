@@ -119,6 +119,40 @@ div img.full-width {
 .img_container img {
     box-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
+.img_container a {
+    text-decoration: none;
+    color: #fff;
+}
+.mid_content a{
+    color: #212121;
+}
+.mid_content h4 {
+    font-weight: bold;
+}
+.mid_content a .glyphicon-pushpin{
+    color: #FF0000;
+}
 .align_center{
     text-align: center;
+}
+.img_text{
+    bottom: 0;
+    position: absolute;
+    text-align: left;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(transparent,rgba(0,0,0,0.8));
+    background-image: linear-gradient(transparent,rgba(0,0,0,0.8));
+    background-position-y: -1px;
+    padding: 5px;
+    margin-bottom: 8px;
+}
+
+.col-sm-12 h3.pull-right{
+    margin-top: 0;
+    font-weight: bold;
+}
+
+.footer{
+    background-color: #222222;
+    color: #fff;
 }
