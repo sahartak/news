@@ -2,52 +2,32 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Գլխավոր էջի վերնագիր';
 ?>
-<div class="site-index">
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+<div class="container-fluid grey_content">
+    <div class="container">
+        <div class="row align_center">
+            <div class="col-sm-8 img_container">
+                <a href="#"><img src="http://newsroyal.com/timthumb.php?src=http://newsroyal.com/upload/20589.png&w=750&h=418" class="full-width" /></a>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+            <div class="col-sm-4">
+                <div class="col-sm-12 img_container">
+                    <a href="#"><img src="http://newsroyal.com/timthumb.php?src=http://newsroyal.com/upload/20585.png&w=350&h=180" /></a>
+                </div>
+                <div class="col-xs-6 img_container">
+                    <a href="#"><img src="http://newsroyal.com/timthumb.php?src=http://newsroyal.com/upload/20574.png&w=200&h=135" /></a>
+                </div>
+                <div class="col-xs-6 img_container">
+                    <a href="#"><img src="http://newsroyal.com/timthumb.php?src=http://newsroyal.com/upload/20574.png&w=200&h=135" /></a>
+                </div>
+                <div class="col-xs-6 img_container">
+                    <a href="#"><img src="http://newsroyal.com/timthumb.php?src=http://newsroyal.com/upload/20574.png&w=200&h=135" /></a>
+                </div>
+                <div class="col-xs-6 img_container">
+                    <a href="#"><img src="http://newsroyal.com/timthumb.php?src=http://newsroyal.com/upload/20574.png&w=200&h=135" /></a>
+                </div>
             </div>
         </div>
-
     </div>
 </div>

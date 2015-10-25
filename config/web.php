@@ -13,12 +13,12 @@ $config = [
             'enableStrictParsing' => false,
             'rules' => [
                 //'login' => 'site/login'
+                'contact' => 'site/contact'
             ],
         ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => '10af1697bd647e08532704dddea5ba59',
-            'baseUrl'=> '',
+            'cookieValidationKey' => '10af1697bd647asd56zxc5435%adAS54DF97bd644565zx65c7e08532704dSFGd4dd59dea5ba59',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',

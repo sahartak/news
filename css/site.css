@@ -89,3 +89,36 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
+
+.grey_content{
+    background-color: #E7E8E1;
+    margin-top: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+div img {
+    max-width: 100%;
+}
+
+div img.full-width {
+    width: 100%;
+}
+
+.m-bottom{
+    margin-bottom: 10px;
+}
+.m-right-0{
+    margin-right: 0;
+}
+.img_container{
+    padding: 0 0 10px 10px;
+}
+.img_container:hover{
+    opacity: 0.9;
+}
+.img_container img {
+    box-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+.align_center{
+    text-align: center;
+}

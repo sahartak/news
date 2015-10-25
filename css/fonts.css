@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'Arian AMU';
+  font-style: normal;
+  font-weight: normal;
+  
+  src: 
+       local('Arian AMU'),
+       url('fonts/arnamu.woff') format('woff'),
+       url('fonts/arnamu.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'Arian AMU';
+  font-style: normal;
+  font-weight: bold;
+  
+  src: 
+       local('Arian AMU'),
+       url('fonts/arnamu_bold.woff') format('woff'),
+       url('fonts/arnamu_bold.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'Arian AMU';
+  font-style: italic;
+  font-weight: normal;
+  
+  src: 
+       local('Arian AMU'),
+       url('fonts/arnamu_italic.woff') format('woff'),
+       url('fonts/arnamu_italic.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'Arian AMU';
+  font-style: italic;
+  font-weight: bold;
+  
+  src: 
+       local('Arian AMU'),
+       url('fonts/arnamu_italic_bold.woff') format('woff'),
+       url('fonts/arnamu_italic_bold.svg') format('svg');
+}
+
+*{
+font-family:Arian Amu, Arial; }
+body{
+font-family:Arian Amu, Arial; }
