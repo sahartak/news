@@ -6,6 +6,7 @@ use Yii;
 use app\models\Category;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
+use yii\filters\AccessControl;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -14,17 +15,24 @@ use yii\filters\VerbFilter;
  */
 class CategoryController extends Controller
 {
-	public function behaviors()
+
+	/*public function behaviors()
 	{
 		return [
-			'verbs' => [
-				'class' => VerbFilter::className(),
-				'actions' => [
-					'delete' => ['post'],
-				],
-			],
-		];
-	}
+			'access' => [
+				'class' => AccessControl::className(),
+				'rules' => [
+					[
+						'allow' => true, // or false
+						'actions' => ['ids', 'of', 'actions', 'to', 'apply', 'rule','to'],
+						'controllers' => ['ids', 'of', 'controllers', 'to', 'apply','rule', 'to'],
+						'roles' => ['roles', 'including', 'symbols', '?', 'and', '@','explained', 'before'],
+						'ips' => ['IP', 'addresses', 'possibly', 'including', 'wildcards','*'],
+						'verbs' => ['HTTP', 'Request', 'Methods', 'to', 'apply', 'rule', ],
+				]
+			]
+		]];
+	}*/
 
 	/**
 	 * Lists all Category models.

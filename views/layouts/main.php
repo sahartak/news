@@ -62,9 +62,9 @@ AppAsset::register($this);
 
 <footer class="footer">
 	<div class="container">
-		<p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+		<p class="pull-left">&copy; News <?= date('Y') ?></p>
 
-		<p class="pull-right"><?= Yii::powered() ?></p>
+		<p class="pull-right">Powered by <a href="http://web.armsolid.ru" rel="external">WebandHost</a></p>
 	</div>
 </footer>
 
