@@ -20,13 +20,9 @@ use yii\widgets\ActiveForm;
 
 	<?= $form->field($model, 'meta_key')->textInput(['maxlength' => true]) ?>
 
-	<?= $form->field($model, 'created')->textInput() ?>
+	<?= $form->field($model, 'important')->checkbox() ?>
 
-	<?= $form->field($model, 'published')->textInput() ?>
 
-	<?= $form->field($model, 'important')->textInput() ?>
-
-	<?= $form->field($model, 'hits')->textInput() ?>
 
 	<div class="form-group">
 		<?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

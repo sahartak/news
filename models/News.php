@@ -50,14 +50,14 @@ class News extends \yii\db\ActiveRecord
 	{
 		return [
 			'id' => 'ID',
-			'title' => 'Title',
-			'content' => 'Content',
-			'video' => 'Video',
-			'meta_key' => 'Meta Key',
-			'created' => 'Created',
-			'published' => 'Published',
-			'important' => 'Important',
-			'hits' => 'Hits',
+			'title' => 'Վերնագիր',
+			'content' => 'Տեքստ',
+			'video' => 'Վիդեո',
+			'meta_key' => 'բանալի բառեր',
+			'created' => 'Ստեղծված',
+			'published' => 'Հրապարակված',
+			'important' => 'Գլխավոր',
+			'hits' => 'Դիտվել է',
 		];
 	}
 
