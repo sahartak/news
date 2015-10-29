@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "news".
@@ -16,11 +17,15 @@ use Yii;
  * @property string $published
  * @property integer $important
  * @property integer $hits
- *
+ * @property integer $is_published
  * @property CategoryRelations[] $categoryRelations
  */
 class News extends \yii\db\ActiveRecord
 {
+
+	public $categories = [];
+
+	public $imageFile;
 	/**
 	 * @inheritdoc
 	 */
@@ -38,9 +43,21 @@ class News extends \yii\db\ActiveRecord
 			[['title'], 'required'],
 			[['content'], 'string'],
 			[['created', 'published'], 'safe'],
-			[['important', 'hits'], 'integer'],
-			[['title', 'video', 'meta_key'], 'string', 'max' => 255]
+			[['important', 'hits', 'is_published'], 'integer'],
+			[['title', 'video', 'meta_key'], 'string', 'max' => 255],
+			[['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg']
 		];
+	}
+
+	public function upload()
+	{
+		$this->imageFile = UploadedFile::getInstance($this, 'imageFile');
+		if ($this->validate()) {
+			$this->imageFile->saveAs('uploads/' . $this->id . '.' . 'png');
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
@@ -54,10 +71,12 @@ class News extends \yii\db\ActiveRecord
 			'content' => 'Տեքստ',
 			'video' => 'Վիդեո',
 			'meta_key' => 'բանալի բառեր',
-			'created' => 'Ստեղծված',
-			'published' => 'Հրապարակված',
+			'created' => 'Ստեղծման ամսաթիվ',
+			'published' => 'Հրապարակման ամսաթիվ',
 			'important' => 'Գլխավոր',
 			'hits' => 'Դիտվել է',
+			'is_published' => 'Հրապարակված է',
+			'imageFile' => 'Նկար'
 		];
 	}
 

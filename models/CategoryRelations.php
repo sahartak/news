@@ -41,7 +41,7 @@ class CategoryRelations extends \yii\db\ActiveRecord
 		return [
 			'id' => 'ID',
 			'news_id' => 'News ID',
-			'category_id' => 'Category ID',
+			'category_id' => 'Կատեգորիա',
 		];
 	}
 

@@ -2,6 +2,8 @@
 
 namespace app\controllers\admin;
 
+use app\models\Category;
+use app\models\CategoryRelations;
 use Yii;
 use app\models\News;
 use app\models\NewsSearch;
@@ -61,13 +63,29 @@ class NewsController extends Controller
 	public function actionCreate()
 	{
 		$model = new News();
-
-		if ($model->load(Yii::$app->request->post()) && $model->save()) {
+		$category_relations = new CategoryRelations();
+		$loaded = $model->load(Yii::$app->request->post());
+		if($loaded) {
+			if($model->is_published)
+				$model->published = date('Y-m-d H:i:s');
+		}
+		if ($loaded && $model->save()) {
+			$model->upload();
+			$category_relations->load(Yii::$app->request->post());
+			foreach($category_relations->category_id as $cat_id) {
+				$category_relation = new CategoryRelations();
+				$category_relation->news_id = $model->id;
+				$category_relation->category_id = $cat_id;
+				$category_relation->save();
+			}
 			return $this->redirect(['view', 'id' => $model->id]);
 		} else {
-			return $this->render('create', [
-				'model' => $model,
-			]);
+			$categories_arr = Category::find()->asArray()->all();
+			foreach($categories_arr as &$cat) {
+				$categories[$cat['id']] = $cat['name'];
+			}
+			$model->is_published = 1;
+			return $this->render('create', compact('model', 'categories', 'category_relations'));
 		}
 	}
 

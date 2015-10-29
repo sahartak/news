@@ -10,7 +10,7 @@ use yii\widgets\ActiveForm;
 
 <div class="news-form container">
 
-	<?php $form = ActiveForm::begin(); ?>
+	<?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
 	<?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
@@ -20,12 +20,20 @@ use yii\widgets\ActiveForm;
 
 	<?= $form->field($model, 'meta_key')->textInput(['maxlength' => true]) ?>
 
+	<?= $form->field($model, 'imageFile')->fileInput() ?>
+
 	<?= $form->field($model, 'important')->checkbox() ?>
 
+	<?= $form->field($category_relations, 'category_id')->checkboxList($categories)?>
+
+	<?= $form->field($model, 'is_published')->checkbox(); ?>
+
+
+	</div>
 
 
 	<div class="form-group">
-		<?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+		<?= Html::submitButton($model->isNewRecord ? 'Ավելացնել' : 'Խմբագրել', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
 	</div>
 
 	<?php ActiveForm::end(); ?>

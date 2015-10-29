@@ -156,3 +156,10 @@ div img.full-width {
     background-color: #222222;
     color: #fff;
 }
+
+#categoryrelations-category_id label {
+    display: block;
+}
+label {
+    cursor: pointer;
+}
