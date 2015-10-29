@@ -20,7 +20,7 @@ use yii\widgets\ActiveForm;
 
 	<?= $form->field($model, 'meta_key')->textInput(['maxlength' => true]) ?>
 	<?php if($model->id):?>
-		<img src="/uploads/<?=$model->id?>.png" width="100">
+		<img src="/thumb.php?src=/uploads/<?=$model->id?>.png&h=100" >
 	<?php endif;?>
 	<?= $form->field($model, 'imageFile')->fileInput() ?>
 
@@ -41,3 +41,9 @@ use yii\widgets\ActiveForm;
 	<?php ActiveForm::end(); ?>
 
 </div>
+<script>
+	window.onload = function() {
+		CKEDITOR.replace( 'News[content]' );
+	}
+
+</script>

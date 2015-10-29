@@ -22,7 +22,8 @@ class AppAsset extends AssetBundle
 		'css/fonts.css'
 	];
 	public $js = [
-		'js/scripts.js'
+		'js/scripts.js',
+		'//cdn.ckeditor.com/4.5.4/standard/ckeditor.js'
 	];
 	public $depends = [
 		'yii\web\YiiAsset',

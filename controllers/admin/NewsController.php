@@ -135,6 +135,7 @@ class NewsController extends Controller
 	 */
 	public function actionDelete($id)
 	{
+		CategoryRelations::deleteAll(['news_id'=>$id]);
 		$this->findModel($id)->delete();
 
 		return $this->redirect(['index']);
