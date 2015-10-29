@@ -8,7 +8,7 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="news-search container">
+<div class="news-search">
 
 	<?php $form = ActiveForm::begin([
 		'action' => ['index'],

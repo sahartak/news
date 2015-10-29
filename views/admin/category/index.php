@@ -9,7 +9,7 @@ use yii\grid\GridView;
 $this->title = 'Categories';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="container">
+
 	<div class="category-index">
 
 		<h1><?= Html::encode($this->title) ?></h1>
@@ -31,4 +31,3 @@ $this->params['breadcrumbs'][] = $this->title;
 		]); ?>
 
 	</div>
-</div>
