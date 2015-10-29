@@ -24,7 +24,7 @@ use yii\widgets\ActiveForm;
 
 	<?= $form->field($model, 'important')->checkbox() ?>
 
-	<?= $form->field($category_relations, 'category_id')->checkboxList($categories)?>
+	<?= $form->field($model, 'categories')->checkboxList($categories)?>
 
 	<?= $form->field($model, 'is_published')->checkbox(); ?>
 

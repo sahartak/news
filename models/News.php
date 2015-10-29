@@ -52,7 +52,7 @@ class News extends \yii\db\ActiveRecord
 	public function upload()
 	{
 		$this->imageFile = UploadedFile::getInstance($this, 'imageFile');
-		if ($this->validate()) {
+		if ($this->imageFile) {
 			$this->imageFile->saveAs('uploads/' . $this->id . '.' . 'png');
 			return true;
 		} else {
@@ -76,7 +76,8 @@ class News extends \yii\db\ActiveRecord
 			'important' => 'Գլխավոր',
 			'hits' => 'Դիտվել է',
 			'is_published' => 'Հրապարակված է',
-			'imageFile' => 'Նկար'
+			'imageFile' => 'Նկար',
+			'categories' => 'Կատեգորիաներ'
 		];
 	}
 
