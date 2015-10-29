@@ -32,8 +32,14 @@ $this->params['breadcrumbs'][] = $this->title;
 			'meta_key',
 			'created',
 			'published',
-			'important',
 			'hits',
+			[
+				'label'=>'Գլխավոր',
+				'format'=>'raw',
+				'value' => function($data){
+					return $data->important ? 'Այո' : '';
+				}
+			],
 
 			['class' => 'yii\grid\ActionColumn'],
 		],

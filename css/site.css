@@ -163,3 +163,8 @@ div img.full-width {
 label {
     cursor: pointer;
 }
+
+.table.table-bordered td, .table.table-bordered th{
+    text-align: center;
+    vertical-align: middle;
+}
