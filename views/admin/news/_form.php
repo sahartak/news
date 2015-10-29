@@ -19,7 +19,9 @@ use yii\widgets\ActiveForm;
 	<?= $form->field($model, 'video')->textInput(['maxlength' => true]) ?>
 
 	<?= $form->field($model, 'meta_key')->textInput(['maxlength' => true]) ?>
-	<img src="/uploads/<?=$model->id?>.png" width="100">
+	<?php if($model->id):?>
+		<img src="/uploads/<?=$model->id?>.png" width="100">
+	<?php endif;?>
 	<?= $form->field($model, 'imageFile')->fileInput() ?>
 
 	<?= $form->field($model, 'important')->checkbox() ?>
