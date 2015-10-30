@@ -35,7 +35,7 @@ class News extends \yii\db\ActiveRecord
 	public static function cut_string($string, $type=0) {
 		switch($type) {
 			case 0:
-				$length = 200;
+				$length = 170;
 				break;
 			case 1:
 				$length = 25;

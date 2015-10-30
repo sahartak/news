@@ -7,9 +7,6 @@ $this->title = 'Գլխավոր էջի վերնագիր';
 
 <div class="container-fluid grey_content">
 	<div class="container">
-		<pre>
-			<?php print_r($newses)?>
-		</pre>
 		<div class="row">
 			<div class="col-sm-12 ">
 				<h3 class="pull-right"><?=date('d.M.Y')?></h3>
@@ -74,12 +71,12 @@ $this->title = 'Գլխավոր էջի վերնագիր';
 <div class="container mid_content">
 	<div class="row">
 
-	<?php foreach($newses as $news):?>
+	<?php foreach($categories as $news):?>
 		<div class="col-md-4">
 			<a href="#">
 				<img src="/thumb.php?src=uploads/<?=$news['news_id']?>.png&w=350&h=200" class="full-width" />
-				<h4>Ռեջեփ Էրդողանն ահաբեկում է Թուրքիային նոր ահաբեկչություններով</h4>
-				<p>Թուրքական իշխանություններին մոտ կանգնած Sabah թերթի տեղեկություններով երկրի տարբեր շրջաններում սպասվում են ահաբեկչական գործողություններ...</p>
+				<h4><?=$news['news']['title']?></h4>
+				<p><?=News::cut_string($news['news']['content'])?>...</p>
 				<p><span class="glyphicon glyphicon-pushpin"></span> Քաղաքական</p>
 			</a>
 		</div>
