@@ -55,19 +55,10 @@ class SiteController extends Controller
 	{
 		$header_news = News::find()->where(['important' => 1])->orderBy('id DESC')->asArray()->one();
 		$header_id = $header_news ? $header_news['id'] : 0;
-		$newses = CategoryRelations::find()
-					->select('news_id')
-					->distinct()
-					->addSelect('category_id')
-					->where(['!=', 'news_id', $header_id])
-					->groupBy('category_id')
-					->with('news')
-					->orderBy('category_id')
-					->addOrderBy('news_id DESC')
-					->joinWith('news')
-					->joinWith('category')
+		$newses = CategoryRelations::findBySql('SELECT DISTINCT `news_id` FROM `category_relations` LEFT JOIN `news` ON `category_relations`.`news_id` = `news`.`id` LEFT JOIN `categories` ON `category_relations`.`category_id` = `categories`.`id` GROUP BY category_relations.`category_id` ORDER BY category_relations.`category_id`, `news_id` DESC LIMIT 10')
 					->asArray()
 					->all();
+		print_r($newses); die;
 		return $this->render('index', compact('newses', 'header_news'));
 	}
 
