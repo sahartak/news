@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\CategoryRelations;
+use app\models\News;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -11,6 +13,8 @@ use app\models\ContactForm;
 
 class SiteController extends Controller
 {
+	public $layout = 'index_layout';
+
 	public function behaviors()
 	{
 		return [
@@ -49,8 +53,22 @@ class SiteController extends Controller
 
 	public function actionIndex()
 	{
-		$this->layout = 'index_layout';
-		return $this->render('index');
+		$header_news = News::find()->where(['important' => 1])->orderBy('id DESC')->asArray()->one();
+		$header_id = $header_news ? $header_news['id'] : 0;
+		$newses = CategoryRelations::find()
+					->select('news_id')
+					->distinct()
+					->addSelect('category_id')
+					->where(['!=', 'news_id', $header_id])
+					->groupBy('category_id')
+					->with('news')
+					->orderBy('category_id')
+					->addOrderBy('news_id DESC')
+					->joinWith('news')
+					->joinWith('category')
+					->asArray()
+					->all();
+		return $this->render('index', compact('newses', 'header_news'));
 	}
 
 	public function actionLogin()

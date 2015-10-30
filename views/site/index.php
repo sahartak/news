@@ -1,7 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
-
+use app\models\News;
 $this->title = 'Գլխավոր էջի վերնագիր';
 ?>
 
@@ -15,10 +15,10 @@ $this->title = 'Գլխավոր էջի վերնագիր';
 		<div class="row align_center">
 			<div class="col-md-8 img_container">
 				<a href="#">
-					<img src="http://newsroyal.com/timthumb.php?src=http://newsroyal.com/upload/20589.png&w=750&h=437" class="full-width" class="full-width" />
+					<img src="/thumb.php?src=uploads/<?=$header_news['id']?>.png&w=750&h=437" class="full-width" class="full-width" />
 					<div class="img_text">
-						<h3>Ռեջեփ Էրդողանն ահաբեկում է Թուրքիային նոր ահաբեկչություններով</h3>
-						<p>Թուրքական իշխանություններին մոտ կանգնած Sabah թերթի տեղեկություններով երկրի տարբեր շրջաններում սպասվում են ահաբեկչական գործողություններ...</p>
+						<h3><?=$header_news['title']?></h3>
+						<p><?=News::cut_string($header_news['content'])?></p>
 					</div>
 				</a>
 			</div>

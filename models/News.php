@@ -26,6 +26,27 @@ class News extends \yii\db\ActiveRecord
 	public $categories = [];
 
 	public $imageFile;
+	public $description;
+
+	public function afterFind() {
+		$this->description = 'ddz59';
+	}
+
+	public static function cut_string($string, $type=0) {
+		switch($type) {
+			case 0:
+				$length = 200;
+				break;
+			case 1:
+				$length = 25;
+				break;
+			case 2:
+				$length = 15;
+				break;
+		}
+		return mb_substr($string, 0, $length, 'utf-8');
+	}
+
 	/**
 	 * @inheritdoc
 	 */

@@ -52,4 +52,12 @@ class CategoryRelations extends \yii\db\ActiveRecord
 	{
 		return $this->hasOne(News::className(), ['id' => 'news_id']);
 	}
+
+	/**
+	 * @return \yii\db\ActiveQuery
+	 */
+	public function getCategory()
+	{
+		return $this->hasOne(Category::className(), ['id' => 'category_id']);
+	}
 }
