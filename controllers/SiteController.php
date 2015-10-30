@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Category;
 use app\models\CategoryRelations;
 use app\models\News;
 use Yii;
@@ -69,6 +70,17 @@ class SiteController extends Controller
 		}
 		$top_newses = News::find()->where(['is_published' => 1])->andWhere(['NOT IN', 'id', $newses_ids])->orderBy('published DESC')->limit(5)->asArray()->all();
 		return $this->render('index', compact('categories', 'header_news', 'top_newses'));
+	}
+
+	public function actionNews($news_id) {
+		$news = News::find()->where(['id'=>$news_id, 'is_published' => 1])->asArray()->one();
+		if($news) {
+			$sql = 'SELECT `categories`.`name` FROM `category_relations`
+					INNER JOIN `categories` ON `categories`.`id` = `category_relations`.`category_id`
+					WHERE `category_relations`.`news_id` = ' . $news['id'];
+			$news['categories'] = CategoryRelations::findBySql($sql)->column();
+			$this->render('news', compact('news'));
+		}
 	}
 
 	public function actionLogin()

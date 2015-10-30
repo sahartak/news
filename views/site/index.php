@@ -14,7 +14,7 @@ $this->title = 'Գլխավոր էջի վերնագիր';
 		</div>
 		<div class="row align_center">
 			<div class="col-md-8 img_container">
-				<a href="#">
+				<a href="/news/<?=$header_news['id']?>">
 					<img src="/thumb.php?src=uploads/<?=$header_news['id']?>.png&w=750&h=437" class="full-width" class="full-width" />
 					<div class="img_text">
 						<h3><?=$header_news['title']?></h3>

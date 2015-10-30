@@ -14,7 +14,12 @@ $config = [
 			'rules' => [
 				'/' => 'site/index',
 				'login' => 'site/login',
-				'contact' => 'site/contact'
+				'contact' => 'site/contact',
+				[
+					'pattern' => 'news/<news_id:\d+>',
+					'route' => 'site/news',
+					'defaults' => ['news_id' => 0],
+				],
 			],
 		],
 		'request' => [
