@@ -2,17 +2,16 @@
 
 /* @var $this yii\web\View */
 use app\models\News;
-$this->title = 'Գլխավոր էջի վերնագիր';
+$this->title = $news['title'];
 
 ?>
-
-<div class="container-fluid grey_content">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12 ">print_r($news); die('z59');
-				<h3 class="pull-right"><?=date('d.M.Y')?></h3>
-			</div>
-		</div>
-
+<div class="news-page">
+	<div class="row">
+		<!--<h3 class="pull-right"><?/*=date('d.m.Y H:i', strtotime($news['published']))*/?></h3>-->
+		<h1><?=$news['title']?></h1>
+	</div>
+	<div class="row">
+		<h2><img src="/uploads/<?=$news['id']?>.png" alt="<?=$news['title']?>" title="<?=$news['title']?>"></h2>
+		<?=$news['content']?>
 	</div>
 </div>

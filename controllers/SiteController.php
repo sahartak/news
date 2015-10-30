@@ -14,8 +14,6 @@ use app\models\ContactForm;
 
 class SiteController extends Controller
 {
-	public $layout = 'index_layout';
-
 	public function behaviors()
 	{
 		return [
@@ -54,6 +52,7 @@ class SiteController extends Controller
 
 	public function actionIndex()
 	{
+		$this->layout = 'index_layout';
 		$header_news = News::find()->where(['important' => 1])->orderBy('id DESC')->asArray()->one();
 		$header_id = $header_news ? $header_news['id'] : 0;
 
@@ -79,7 +78,7 @@ class SiteController extends Controller
 					INNER JOIN `categories` ON `categories`.`id` = `category_relations`.`category_id`
 					WHERE `category_relations`.`news_id` = ' . $news['id'];
 			$news['categories'] = CategoryRelations::findBySql($sql)->column();
-			$this->render('news', compact('news'));
+			return $this->render('news', compact('news'));
 		}
 	}
 

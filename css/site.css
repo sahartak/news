@@ -172,3 +172,12 @@ label {
 .news-view .table.table-bordered td{
     text-align: left;
 }
+
+.news-page h1 {
+    text-align: center;
+}
+
+.news-page img {
+    max-width: 90%;
+    text-align: left;
+}
