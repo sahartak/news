@@ -24,45 +24,23 @@ $this->title = 'Գլխավոր էջի վերնագիր';
 			</div>
 			<div class="col-md-4">
 				<div class="col-sm-12 img_container">
-					<a href="#">
-						<img src="http://newsroyal.com/timthumb.php?src=http://newsroyal.com/upload/20585.png&w=350&h=200" class="full-width" />
+					<a href="/news/<?=$top_newses[0]['id']?>">
+						<img src="/thumb.php?src=uploads/<?=$top_newses[0]['id']?>.png&w=350&h=200" class="full-width" />
 						<div class="img_text">
-							<p>Ռեջեփ Էրդողանն ահաբեկում է Թուրքիային նոր ահաբեկչություններով</p>
+							<p><?=News::cut_string($top_newses[0]['content'],1); unset($top_newses[0])?></p>
 						</div>
 					</a>
 				</div>
+			<?php foreach($top_newses as $top_news):?>
 				<div class="col-xs-6 img_container">
-					<a href="#">
-						<img src="http://newsroyal.com/timthumb.php?src=http://newsroyal.com/upload/20574.png&w=200&h=135" class="full-width"  />
+					<a href="/news/<?=$top_news['id']?>">
+						<img src="/thumb.php?src=uploads/<?=$top_news['id']?>.png&w=200&h=135" class="full-width"  />
 						<div class="img_text">
-							<p>Ռեջեփ Էրդողանն ահաբեկում է ...</p>
+							<p><?=News::cut_string($top_news['content'],2)?> ...</p>
 						</div>
 					</a>
 				</div>
-				<div class="col-xs-6 img_container">
-					<a href="#">
-						<img src="http://newsroyal.com/timthumb.php?src=http://newsroyal.com/upload/20574.png&w=200&h=135" class="full-width" />
-						<div class="img_text">
-							<p>Ռեջեփ Էրդողանն ահաբեկում է ...</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-xs-6 img_container">
-					<a href="#">
-						<img src="http://newsroyal.com/timthumb.php?src=http://newsroyal.com/upload/20574.png&w=200&h=135" class="full-width" />
-						<div class="img_text">
-							<p>Ռեջեփ Էրդողանն ահաբեկում է ...</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-xs-6 img_container">
-					<a href="#">
-						<img src="http://newsroyal.com/timthumb.php?src=http://newsroyal.com/upload/20574.png&w=200&h=135" class="full-width" />
-						<div class="img_text">
-							<p>Ռեջեփ Էրդողանն ահաբեկում է ...</p>
-						</div>
-					</a>
-				</div>
+			<?php endforeach;?>
 			</div>
 		</div>
 	</div>
@@ -73,11 +51,11 @@ $this->title = 'Գլխավոր էջի վերնագիր';
 
 	<?php foreach($categories as $news):?>
 		<div class="col-md-4">
-			<a href="#">
+			<a href="/news/<?=$news['news_id']?>">
 				<img src="/thumb.php?src=uploads/<?=$news['news_id']?>.png&w=350&h=200" class="full-width" />
 				<h4><?=$news['news']['title']?></h4>
 				<p><?=News::cut_string($news['news']['content'])?>...</p>
-				<p><span class="glyphicon glyphicon-pushpin"></span> Քաղաքական</p>
+				<p><span class="glyphicon glyphicon-pushpin"></span> <?=$news['category']['name']?></p>
 			</a>
 		</div>
 	<?php endforeach;?>

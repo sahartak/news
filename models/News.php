@@ -28,20 +28,16 @@ class News extends \yii\db\ActiveRecord
 	public $imageFile;
 	public $description;
 
-	public function afterFind() {
-		$this->description = 'ddz59';
-	}
-
 	public static function cut_string($string, $type=0) {
 		switch($type) {
 			case 0:
 				$length = 170;
 				break;
 			case 1:
-				$length = 25;
+				$length = 80;
 				break;
 			case 2:
-				$length = 15;
+				$length = 58;
 				break;
 		}
 		return mb_substr($string, 0, $length, 'utf-8');

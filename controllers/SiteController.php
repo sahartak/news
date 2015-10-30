@@ -56,18 +56,19 @@ class SiteController extends Controller
 		$header_news = News::find()->where(['important' => 1])->orderBy('id DESC')->asArray()->one();
 		$header_id = $header_news ? $header_news['id'] : 0;
 
-		$categories_ids = CategoryRelations::find()->select('category_id')->distinct()->column();
+		$categories_ids = CategoryRelations::find()->select('category_id')->distinct()->orderBy('category_id')->column();
 		$newses_ids = array();
 		$categories = array();
 		$newses_ids[] = $header_id;
 		foreach($categories_ids as $cat_id) {
-			$query = CategoryRelations::find()->joinWith(['news','category'])->where(['news.is_published' => 1, 'category_id' => $cat_id])->andWhere(['NOT IN', 'news.id', $newses_ids])->asArray()->one();
+			$query = CategoryRelations::find()->joinWith(['news','category'])->where(['news.is_published' => 1, 'category_id' => $cat_id])->andWhere(['NOT IN', 'news.id', $newses_ids])->orderBy('news.published DESC')->asArray()->one();
 			if($query) {
 				$categories[] = $query;
 				$newses_ids[] = $query['news']['id'];
 			}
 		}
-		return $this->render('index', compact('categories', 'header_news'));
+		$top_newses = News::find()->where(['is_published' => 1])->andWhere(['NOT IN', 'id', $newses_ids])->orderBy('published DESC')->limit(5)->asArray()->all();
+		return $this->render('index', compact('categories', 'header_news', 'top_newses'));
 	}
 
 	public function actionLogin()
