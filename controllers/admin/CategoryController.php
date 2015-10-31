@@ -5,34 +5,13 @@ namespace app\controllers\admin;
 use Yii;
 use app\models\Category;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
-use yii\filters\AccessControl;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * CategoryController implements the CRUD actions for Category model.
  */
-class CategoryController extends Controller
+class CategoryController extends AdminController
 {
-
-	/*public function behaviors()
-	{
-		return [
-			'access' => [
-				'class' => AccessControl::className(),
-				'rules' => [
-					[
-						'allow' => true, // or false
-						'actions' => ['ids', 'of', 'actions', 'to', 'apply', 'rule','to'],
-						'controllers' => ['ids', 'of', 'controllers', 'to', 'apply','rule', 'to'],
-						'roles' => ['roles', 'including', 'symbols', '?', 'and', '@','explained', 'before'],
-						'ips' => ['IP', 'addresses', 'possibly', 'including', 'wildcards','*'],
-						'verbs' => ['HTTP', 'Request', 'Methods', 'to', 'apply', 'rule', ],
-				]
-			]
-		]];
-	}*/
 
 	/**
 	 * Lists all Category models.

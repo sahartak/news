@@ -20,6 +20,8 @@ $config = [
 					'route' => 'site/news',
 					'defaults' => ['news_id' => 0],
 				],
+                'admin/admlogin' => 'admin/admin/admlogin',
+                'admin/logout' => 'admin/admin/logout',
 			],
 		],
 		'request' => [
