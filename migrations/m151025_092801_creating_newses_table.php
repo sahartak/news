@@ -15,7 +15,8 @@ class m151025_092801_creating_newses_table extends Migration
             'meta_key' => Schema::TYPE_STRING,
             'created' => Schema::TYPE_TIMESTAMP. ' DEFAULT CURRENT_TIMESTAMP',
             'published' => Schema::TYPE_TIMESTAMP.' DEFAULT 0',
-            'important' => Schema::TYPE_SMALLINT.' DEFAULT 0',
+            'is_published' => 'TINYINT(1) DEFAULT 0',
+            'important' => 'TINYINT(1) DEFAULT 0',
             'hits' => Schema::TYPE_INTEGER.' DEFAULT 0'
         ]);
     }
