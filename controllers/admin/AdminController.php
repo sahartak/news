@@ -3,8 +3,6 @@
 namespace app\controllers\admin;
 
 use Yii;
-use app\models\Category;
-use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 use app\models\LoginForm;
@@ -49,7 +47,7 @@ class AdminController extends Controller
 	public function actionAdmlogin()
 	{
 		if (!\Yii::$app->user->isGuest) {
-			return $this->actionIndex();
+            $this->goHome();
 		}
 
 		$model = new LoginForm();
@@ -64,11 +62,10 @@ class AdminController extends Controller
 	public function actionLogout()
 	{
 		Yii::$app->user->logout();
-
 		return $this->goHome();
 	}
 
 	public function actionIndex() {
-		return 'z59';
+		return 'Admin page index';
 	}
 }

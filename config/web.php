@@ -22,6 +22,7 @@ $config = [
 				],
                 'admin/admlogin' => 'admin/admin/admlogin',
                 'admin/logout' => 'admin/admin/logout',
+                'admin' => 'admin/admin',
 			],
 		],
 		'request' => [

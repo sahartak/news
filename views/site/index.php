@@ -13,6 +13,7 @@ $this->title = 'Գլխավոր էջի վերնագիր';
 			</div>
 		</div>
 		<div class="row align_center">
+        <?php if($header_news):?>
 			<div class="col-md-8 img_container">
 				<a href="/news/<?=$header_news['id']?>">
 					<img src="/thumb.php?src=uploads/<?=$header_news['id']?>.png&w=750&h=437" class="full-width" class="full-width" />
@@ -22,6 +23,8 @@ $this->title = 'Գլխավոր էջի վերնագիր';
 					</div>
 				</a>
 			</div>
+        <?php endif;
+        if($top_newses):?>
 			<div class="col-md-4">
 				<div class="col-sm-12 img_container">
 					<a href="/news/<?=$top_newses[0]['id']?>">
@@ -42,6 +45,7 @@ $this->title = 'Գլխավոր էջի վերնագիր';
 				</div>
 			<?php endforeach;?>
 			</div>
+        <?php endif;?>
 		</div>
 	</div>
 </div>
@@ -49,7 +53,7 @@ $this->title = 'Գլխավոր էջի վերնագիր';
 <div class="container mid_content">
 	<div class="row">
 
-	<?php foreach($categories as $news):?>
+	<?php if($categories) foreach($categories as $news):?>
 		<div class="col-md-4">
 			<a href="/news/<?=$news['news_id']?>">
 				<img src="/thumb.php?src=uploads/<?=$news['news_id']?>.png&w=350&h=200" class="full-width" />
