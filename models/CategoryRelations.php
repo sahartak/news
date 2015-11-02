@@ -60,4 +60,15 @@ class CategoryRelations extends \yii\db\ActiveRecord
 	{
 		return $this->hasOne(Category::className(), ['id' => 'category_id']);
 	}
+
+    public static function get_news_categories_names($news_id) {
+        $sql = 'SELECT `categories`.`name` FROM `category_relations`
+					INNER JOIN `categories` ON `categories`.`id` = `category_relations`.`category_id`
+					WHERE `category_relations`.`news_id` = '.$news_id;
+        $categories = self::findBySql($sql)->column();
+        if($categories) {
+            return $categories;
+        }
+        return array();
+    }
 }

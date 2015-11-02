@@ -74,10 +74,7 @@ class SiteController extends Controller
 	public function actionNews($news_id) {
 		$news = News::find()->where(['id'=>$news_id, 'is_published' => 1])->asArray()->one();
 		if($news) {
-			$sql = 'SELECT `categories`.`name` FROM `category_relations`
-					INNER JOIN `categories` ON `categories`.`id` = `category_relations`.`category_id`
-					WHERE `category_relations`.`news_id` = ' . $news['id'];
-			$news['categories'] = CategoryRelations::findBySql($sql)->column();
+			$news['categories'] = CategoryRelations::get_news_categories_names($news['id']);
 			return $this->render('news', compact('news'));
 		}
 	}
