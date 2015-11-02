@@ -14,6 +14,7 @@ use yii\filters\VerbFilter;
  */
 class AdminController extends Controller
 {
+    public $layout = 'admin';
 
 	public function behaviors()
 	{
@@ -52,7 +53,7 @@ class AdminController extends Controller
 
 		$model = new LoginForm();
 		if ($model->load(Yii::$app->request->post()) && $model->login()) {
-			return 'ok';
+            return $this->redirect('/admin', 302);
 		}
 		return $this->render('login', [
 			'model' => $model,
@@ -66,6 +67,6 @@ class AdminController extends Controller
 	}
 
 	public function actionIndex() {
-		return 'Admin page index';
+		return $this->render('index');
 	}
 }

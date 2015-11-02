@@ -36,21 +36,26 @@ AppAsset::register($this);
 	echo Nav::widget([
 		'options' => ['class' => 'navbar-nav navbar-right'],
 		'items' => [
-			['label' => 'Գլխավոր', 'url' => ['/']],
-			['label' => 'Քաղաքական', 'url' => ['/#']],
-			['label' => 'Միջազգային', 'url' => ['/#']],
-			['label' => 'Մշակույթ', 'url' => ['/#']],
-			['label' => 'Սպորտ', 'url' => ['/#']],
-			['label' => 'Ժամանց', 'url' => ['/#']],
-			['label' => 'Մամուլ', 'url' => ['/#']],
-			['label' => 'Հետադարձ կապ', 'url' => ['/contact']],
+			['label' => 'Գլխավոր', 'url' => ['/admin']],
+			['label' => 'Նորություններ', 'url' => ['/admin/news']],
+			['label' => 'Կատեգորիաներ', 'url' => ['/admin/category']],
+			Yii::$app->user->isGuest ?
+				['label' => 'Login', 'url' => ['/site/login']] :
+				[
+					'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+					'url' => ['/admin/logout'],
+					'linkOptions' => ['data-method' => 'post']
+				],
 		],
 	]);
 	NavBar::end();
 	?>
-	
+	<div class="container">
+		<?= Breadcrumbs::widget([
+			'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+		]) ?>
 		<?= $content ?>
-	
+	</div>
 </div>
 
 <footer class="footer">
