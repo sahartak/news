@@ -48,7 +48,7 @@ class AdminController extends Controller
 	public function actionAdmlogin()
 	{
 		if (!\Yii::$app->user->isGuest) {
-            $this->goHome();
+            return $this->redirect('/admin', 302);
 		}
 
 		$model = new LoginForm();

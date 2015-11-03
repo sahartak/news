@@ -181,3 +181,7 @@ label {
     max-width: 90%;
     text-align: left;
 }
+
+.news-block{
+    min-height: 130px;
+}

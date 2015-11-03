@@ -54,12 +54,14 @@ $this->title = 'Գլխավոր էջի վերնագիր';
 	<div class="row">
 
 	<?php if($categories) foreach($categories as $news):?>
-		<div class="col-md-4">
+		<div class="col-md-4 col-sm-6 news-block">
 			<a href="/news/<?=$news['news_id']?>">
 				<img src="/thumb.php?src=uploads/<?=$news['news_id']?>.png&w=350&h=200" class="full-width" />
-				<h4><?=$news['news']['title']?></h4>
-				<p><?=News::cut_string($news['news']['content'])?>...</p>
-				<p><span class="glyphicon glyphicon-pushpin"></span> <?=$news['category']['name']?></p>
+                <div class="news-block">
+                    <h4><?=News::cut_string($news['news']['title'])?></h4>
+                    <p><?=News::cut_string($news['news']['content'])?>...</p>
+                </div>
+                <p><span class="glyphicon glyphicon-pushpin"></span> <?=$news['category']['name']?></p>
 			</a>
 		</div>
 	<?php endforeach;?>
